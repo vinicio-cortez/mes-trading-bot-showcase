@@ -27,31 +27,22 @@ Automated trading system for MES (Micro E-mini S&P 500) futures using ICT Smart 
 | SMC Patterns | smartmoneyconcepts |
 | Environment | WSL2 Ubuntu 24.04 |
 
-### Architecture
-### Architecture
-┌─────────────────────────────────────────────────┐
-│ Main Controller │
-│ (Kill Zones, Session Management) │
-└─────────────────────┬───────────────────────────┘
-│
-┌─────────────┴─────────────┐
-▼ ▼
-┌───────────────┐ ┌───────────────┐
-│ Data Fetcher │ │ Bias Detector│
-│ (IBKR API) │ │ (30m Chart) │
-└───────┬───────┘ └───────┬───────┘
-│ │
-└───────────┬───────────────┘
-▼
-┌───────────────┐
-│ SMC Scanner │
-│ (5m Chart) │
-└───────┬───────┘
-▼
-┌───────────────┐
-│ Order Manager │
-│ (Bracket OCO) │
-└───────────────┘
+### Architecture Flow
+
+Main Controller (Kill Zones, Session Management)
+                    |
+    +---------------+---------------+
+    |                               |
+Data Fetcher                   Bias Detector
+(IBKR API)                     (30m Chart)
+    |                               |
+    +---------------+---------------+
+                    |
+              SMC Scanner
+              (5m Chart)
+                    |
+              Order Manager
+              (Bracket OCO)
 
 ### Performance Metrics
 *Metrics from paper trading - April 2026*
@@ -83,3 +74,16 @@ TRADE_SESSIONS = {
     "New_York_AM": ("08:30", "11:00"),
     "New_York_PM": ("13:30", "16:00"),
 }
+Licensing & Access
+The core trading strategy and implementation are proprietary and available for licensing.
+
+For inquiries: Contact via GitHub
+
+Available For
+Strategy licensing
+
+Custom development
+
+Consulting engagements
+
+© 2026 Vinicio Cortez - All Rights Reserved
