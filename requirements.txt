@@ -1,0 +1,4 @@
+ib_insync==0.9.86
+pandas==2.3.3
+numpy==2.4.4
+smartmoneyconcepts==0.0.27
